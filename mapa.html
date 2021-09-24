@@ -1,0 +1,88 @@
+---
+title: "Lugares que quiero visitar"
+author: "Ocampo Guarneros Monserrat"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: scroll
+    favicon: escudo.jpg
+    logo: escudo.jpg
+    fig_mobile: TRUE
+    theme: cosmo
+    social: menu
+    source_code: embed
+    navbar:
+      - {title: "Crea tu propio mapa", href: "https://rstudio.cloud/project/2897129", align: right, icon: fa-map-marker}
+      - {title: "INAE V, Economía UNAM", href: "http://www.economia.unam.mx/", align: right, icon: fa-school}
+---
+
+```{r global, include=FALSE}
+library(leaflet)
+library(leaflet.extras)
+```
+
+Mapa {data-icon="fa-map"}
+=====================================
+
+Row
+-----------------------------------------------------------------------
+
+### Título del mapa
+
+```{r}
+### Registramos la información de los lugares
+lugar1 <- c(Nombre = "Tequila", Giro = "Jalisco", longitud = -103.83, latitud = 20.88)
+lugar2 <- c(Nombre = "Real del Monte", Giro = "Hidalgo", longitud = -99.2, latitud = 19.4)
+lugar3 <- c(Nombre = "Huasca de Ocampo", Giro = "Hidalgo", longitud = -98.57, latitud = 20.20)
+lugar4 <- c(Nombre = "Bacalar", Giro = "Quintana Roo", longitud = -88.39, latitud = 18.67)
+lugar5 <- c(Nombre = "Dolores Hidalgo", Giro = "Guanajuato", longitud = -100.93, latitud = 21.17)
+lugar6 <- c(Nombre = "Tlaxco", Giro = "Tlaxcala", longitud = -98.11, latitud = 19.61)
+
+### Creamos una tabla de datos con la información de los lugares
+lugares <- data.frame(rbind(lugar1, lugar2, lugar3, lugar4, lugar5, lugar6))
+
+### Nos aseguramos de que la latitud y longitud sean números
+lugares$longitud <- as.numeric(lugares$longitud)
+lugares$latitud <- as.numeric(lugares$latitud)
+
+### Creamos el mapa
+mapa <- leaflet(lugares) %>% setView(lng = -99.3, lat = 19.4, zoom = 5) %>% addTiles() %>% addMarkers(~longitud, ~latitud, popup = paste(sep = "<br/>", "Nombre:", lugares$Nombre, "Giro:", lugares$Giro)) 
+
+### Agregamos el botón de reset y la barra de herramientas de dibujo al mapa
+mapa %>% addResetMapButton() %>% addDrawToolbar(editOptions = editToolbarOptions(selectedPathOptions = selectedPathOptions())) 
+
+### Imprimimos el mapa
+mapa
+```
+
+
+
+Row
+-----------------------------------------------------------------------
+
+### Descripción del mapa
+
+Aquí puedes escribir la descripción del mapa
+
+*Puedes escribir en cursivas*
+
+**O negritas**
+
+También puedes poner imágenes:
+
+</br><center>![](imagen-ejemplo.png){heigth="150"}</center></br>
+
+[O hipervínculos, por ejemplo a Google](https://www.google.com.mx/)
+
+
+
+Row
+-----------------------------------------------------------------------
+
+### Referencias
+
+1.  Referencia uno
+
+2.  Referencia dos
+
+3.  Referencia tres
