@@ -1,5 +1,5 @@
 ---
-title: "Lugares que quiero visitar"
+title: "Mapa de lugares que quiero visitar"
 author: "Ocampo Guarneros Monserrat"
 output: 
   flexdashboard::flex_dashboard:
@@ -31,12 +31,12 @@ Row
 
 ```{r}
 ### Registramos la información de los lugares
-lugar1 <- c(Nombre = "Tequila", Giro = "Jalisco", longitud = -103.83, latitud = 20.88)
-lugar2 <- c(Nombre = "Real del Monte", Giro = "Hidalgo", longitud = -99.2, latitud = 19.4)
-lugar3 <- c(Nombre = "Huasca de Ocampo", Giro = "Hidalgo", longitud = -98.57, latitud = 20.20)
-lugar4 <- c(Nombre = "Bacalar", Giro = "Quintana Roo", longitud = -88.39, latitud = 18.67)
-lugar5 <- c(Nombre = "Dolores Hidalgo", Giro = "Guanajuato", longitud = -100.93, latitud = 21.17)
-lugar6 <- c(Nombre = "Tlaxco", Giro = "Tlaxcala", longitud = -98.11, latitud = 19.61)
+lugar1 <- c(Nombre = "Tequila Jalisco", Giro = "Turistico", longitud = -103.83, latitud = 20.88)
+lugar2 <- c(Nombre = "Real del Monte Hidalgo", Giro = "Turistico", longitud = -99.2, latitud = 19.4)
+lugar3 <- c(Nombre = "Huasca de Ocampo", Giro = "cc", longitud = -98.57, latitud = 20.20)
+lugar4 <- c(Nombre = "Bacalar Quintana Roo", Giro = "Turistico", longitud = -88.39, latitud = 18.67)
+lugar5 <- c(Nombre = "Dolores Hidalgo Guanajuato", Giro = "Turistico", longitud = -100.93, latitud = 21.17)
+lugar6 <- c(Nombre = "Tlaxo Tlaxcala", Giro = "Turistico", longitud = -98.11, latitud = 19.61)
 
 ### Creamos una tabla de datos con la información de los lugares
 lugares <- data.frame(rbind(lugar1, lugar2, lugar3, lugar4, lugar5, lugar6))
@@ -62,7 +62,7 @@ Row
 
 ### Descripción del mapa
 
-Aquí puedes escribir la descripción del mapa
+En el mapa se muestran los lugares a los cuales me gustaria visitar.
 
 *Puedes escribir en cursivas*
 
@@ -70,7 +70,7 @@ Aquí puedes escribir la descripción del mapa
 
 También puedes poner imágenes:
 
-</br><center>![](imagen-ejemplo.png){heigth="150"}</center></br>
+</br><center>![](imagen-ejemplo.png){weight="150"}</center></br>
 
 [O hipervínculos, por ejemplo a Google](https://www.google.com.mx/)
 
